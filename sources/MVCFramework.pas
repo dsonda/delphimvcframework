@@ -51,7 +51,6 @@ uses
   System.Rtti,
   JSONDataObjects,
   Data.DB,
-  MVCFramework.Session,
   MVCFramework.DuckTyping,
   MVCFramework.Logger,
   MVCFramework.ApplicationSession,
@@ -74,6 +73,7 @@ uses
 {$ENDIF}
 {$ENDIF}
   Web.HTTPApp,
+  MVCFramework.Session, // depois da Web.HTTPApp: o Delphi 12+ tem TWebSession proprio
 
 {$IFDEF MSWINDOWS}
   Web.Win.IsapiHTTP,

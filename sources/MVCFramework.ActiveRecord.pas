@@ -639,7 +639,7 @@ type
     procedure UnregisterInsert(const Value: T);
 
     // events
-    procedure DoItemApplyAction(const Obj: TMVCActiveRecord; const EntityAction: TMVCEntityAction;
+    procedure DoItemApplyAction(const Obj: T; const EntityAction: TMVCEntityAction;
       const ItemApplyAction: TMVCItemApplyAction<T>; var Handled: Boolean);
 
     class function KeyExistsInt(const NewList: TObjectList<T>; const KeyValue: Integer; out Index: Integer): Boolean;
@@ -2322,7 +2322,7 @@ class function TMVCActiveRecordHelper.Select<T>(const SQL: string; const Params:
   const ParamTypes: array of TFieldType; const Options: TMVCActiveRecordLoadOptions): TObjectList<T>;
 var
   lDataSet: TDataSet;
-  lAR: TMVCActiveRecord;
+  lAR: T;
   lHandled: Boolean;
 begin
   Result := TObjectList<T>.Create(True);
@@ -3524,7 +3524,7 @@ begin
   inherited;
 end;
 
-procedure TMVCUnitOfWork<T>.DoItemApplyAction(const Obj: TMVCActiveRecord; const EntityAction: TMVCEntityAction;
+procedure TMVCUnitOfWork<T>.DoItemApplyAction(const Obj: T; const EntityAction: TMVCEntityAction;
   const ItemApplyAction: TMVCItemApplyAction<T>; var Handled: Boolean);
 begin
   if Assigned(ItemApplyAction) then
